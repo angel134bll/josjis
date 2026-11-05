@@ -1,0 +1,1120 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>happy birthday ♡</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;1,500&family=Caveat:wght@500;600;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --red: #c97983;
+  --red-dark: #a95765;
+  --red-light: #e5a8ad;
+  --blue: #a9c8df;
+  --blue-light: #d9e8f2;
+  --cream: #fff8e9;
+  --ink: #59464b;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: #f8e9e7;
+  color: var(--ink);
+  font-family: 'Nunito', sans-serif;
+  overflow-x: hidden;
+}
+
+button {
+  border: 0;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.page {
+  display: none;
+  min-height: 100vh;
+  width: 100%;
+  padding: 35px 18px;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.page.active {
+  display: flex;
+  animation: fade .7s ease;
+}
+
+@keyframes fade {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+h1, h2 {
+  font-family: 'Playfair Display', serif;
+  font-weight: 500;
+}
+
+.script {
+  font-family: 'Caveat', cursive;
+}
+
+.subtitle {
+  color: #a8797d;
+  font-family: 'Caveat', cursive;
+  font-size: 25px;
+}
+
+.btn {
+  background: var(--red);
+  color: white;
+  padding: 12px 27px;
+  border-radius: 30px;
+  font-weight: 800;
+  box-shadow: 0 5px 15px #a9576533;
+  transition: .25s;
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+  background: var(--red-dark);
+}
+
+.small-text {
+  font-size: 13px;
+  color: #a8797d;
+  line-height: 1.8;
+}
+
+/* dekorasi jaring */
+
+.web-decoration {
+  position: absolute;
+  color: #c97983;
+  opacity: .35;
+  font-size: 85px;
+  pointer-events: none;
+}
+
+.web-left {
+  top: -12px;
+  left: -18px;
+}
+
+.web-right {
+  bottom: -15px;
+  right: -18px;
+  transform: rotate(180deg);
+}
+
+/* halaman amplop */
+
+#home {
+  background:
+    radial-gradient(circle at 15% 15%, #f9dfe0, transparent 40%),
+    radial-gradient(circle at 90% 85%, #dceaf3, transparent 40%),
+    #f8efeb;
+}
+
+.home-label {
+  color: #a8797d;
+  font-family: 'Caveat', cursive;
+  font-size: 23px;
+  margin-bottom: 20px;
+  z-index: 9;
+}
+
+.envelope-scene {
+  width: min(88vw, 490px);
+  height: 320px;
+  position: relative;
+  perspective: 1000px;
+  margin: 15px auto 20px;
+}
+
+/* amplop */
+
+.envelope {
+  position: absolute;
+  inset: 35px 0 0;
+  background: var(--red);
+  border-radius: 5px;
+  box-shadow: 0 18px 35px #82565b33;
+}
+
+.envelope::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--blue);
+  clip-path: polygon(0 0, 50% 58%, 100% 0);
+  z-index: 1;
+}
+
+.envelope-front {
+  position: absolute;
+  inset: 0;
+  background: var(--red);
+  clip-path: polygon(
+    0 0, 50% 58%, 100% 0,
+    100% 100%, 0 100%
+  );
+  z-index: 4;
+}
+
+.envelope-side {
+  position: absolute;
+  inset: 0;
+  background: #d9949d;
+  clip-path: polygon(0 0, 50% 58%, 0 100%);
+  z-index: 3;
+  opacity: .7;
+}
+
+/* kartu surat */
+
+.letter {
+  position: absolute;
+  z-index: 2;
+  background: var(--cream);
+  width: 84%;
+  height: 230px;
+  left: 8%;
+  top: 8px;
+  padding: 35px 15px;
+  transition: transform 1.2s ease, top 1.2s ease;
+  border: 1px solid #f2e3d1;
+  box-shadow: 0 3px 12px #6f4e4e22;
+}
+
+.letter::before {
+  content: "";
+  position: absolute;
+  inset: 9px;
+  border: 1px solid #e6cfc5;
+  pointer-events: none;
+}
+
+.letter h1 {
+  font-size: clamp(30px, 8vw, 48px);
+  line-height: 1.15;
+  color: #76515a;
+  margin-top: 25px;
+}
+
+.birthday-script {
+  font-family: 'Caveat', cursive;
+  color: var(--red-dark);
+  font-size: clamp(37px, 9vw, 58px);
+}
+
+.letter .tiny {
+  font-size: 9px;
+  letter-spacing: 3px;
+  color: #a88d83;
+  margin-top: 12px;
+}
+
+/* lipatan amplop */
+
+.flap {
+  position: absolute;
+  z-index: 5;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 170px;
+  background: #d58b94;
+  clip-path: polygon(0 0, 100% 0, 50% 100%);
+  transform-origin: top;
+  transition: transform .8s ease;
+}
+
+/* segel */
+
+.seal {
+  position: absolute;
+  z-index: 8;
+  width: 70px;
+  height: 70px;
+  background: radial-gradient(circle at 35% 30%, #76636a, #30282e);
+  border-radius: 50%;
+  left: 50%;
+  top: 83px;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #d9c5c8;
+  font-size: 28px;
+  box-shadow: 0 4px 12px #3d303055;
+  border: 3px solid #55434a;
+  transition: .5s;
+}
+
+.seal:hover {
+  transform: translateX(-50%) scale(1.1);
+}
+
+/* karakter superhero laba-laba */
+
+.spidey-character {
+  position: absolute;
+  z-index: 9;
+  top: -70px;
+  right: -8px;
+  transform: rotate(8deg);
+  animation: spideyFloat 3s ease-in-out infinite;
+  filter: drop-shadow(0 5px 5px #70464b33);
+  pointer-events: none;
+}
+
+@keyframes spideyFloat {
+  0%, 100% {
+    transform: translateY(0) rotate(8deg);
+  }
+  50% {
+    transform: translateY(-9px) rotate(3deg);
+  }
+}
+
+/* animasi amplop */
+
+.envelope-scene.opened .flap {
+  transform: rotateX(180deg);
+  z-index: 1;
+}
+
+.envelope-scene.opened .seal {
+  opacity: 0;
+  transform: translate(-50%, 30px) scale(.6);
+  pointer-events: none;
+}
+
+.envelope-scene.opened .letter {
+  top: -110px;
+  transform: translateY(-15px);
+}
+
+.home-instruction {
+  font-size: 13px;
+  color: #a8797d;
+  margin-top: 10px;
+}
+
+#homeNext {
+  opacity: 0;
+  pointer-events: none;
+  transition: .5s;
+  margin-top: 10px;
+}
+
+#homeNext.visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* halaman ulang tahun */
+
+#birthday {
+  background: linear-gradient(140deg, #fae7e6, #e4edf4);
+}
+
+.birthday-card {
+  width: min(90vw, 500px);
+  background: #fffaf0;
+  padding: 35px 25px;
+  border: 1px solid #efd9d0;
+  box-shadow: 0 12px 35px #8c5e6522;
+  position: relative;
+}
+
+.birthday-card::before {
+  content: "✦";
+  position: absolute;
+  top: 13px;
+  left: 17px;
+  color: var(--red-light);
+}
+
+.birthday-card::after {
+  content: "✦";
+  position: absolute;
+  bottom: 13px;
+  right: 17px;
+  color: var(--blue);
+}
+
+.birthday-card h1 {
+  color: var(--red-dark);
+  font-size: clamp(38px, 9vw, 58px);
+  margin: 10px 0;
+}
+
+.birthday-card p {
+  font-size: 14px;
+  line-height: 1.9;
+  white-space: pre-line;
+}
+
+/* surat */
+
+#letters {
+  background: linear-gradient(140deg, #f8e7e6, #e8eff5);
+}
+
+.section-title {
+  color: var(--red-dark);
+  font-size: 35px;
+  margin-bottom: 8px;
+}
+
+.section-desc {
+  font-size: 14px;
+  line-height: 1.7;
+  max-width: 380px;
+  margin: 0 auto 25px;
+}
+
+.letter-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 13px;
+  width: min(100%, 560px);
+}
+
+.letter-card {
+  background: #fffaf1;
+  border: 1px solid #ecd7d1;
+  border-radius: 8px;
+  padding: 20px 10px;
+  color: var(--ink);
+  box-shadow: 0 6px 15px #9b6d7020;
+  transition: .3s;
+}
+
+.letter-card:hover {
+  transform: translateY(-5px);
+}
+
+.mini-envelope {
+  font-size: 43px;
+  margin-bottom: 8px;
+}
+
+.letter-card h3 {
+  font-family: 'Playfair Display', serif;
+  color: var(--red-dark);
+  font-size: 16px;
+}
+
+.letter-card p {
+  font-size: 11px;
+  margin-top: 5px;
+  color: #997b7b;
+}
+
+/* modal surat */
+
+.modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 30;
+  background: #45343a99;
+  padding: 18px;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal.show {
+  display: flex;
+}
+
+.paper {
+  background: #fffaf0;
+  width: min(100%, 500px);
+  max-height: 82vh;
+  overflow-y: auto;
+  padding: 32px 25px;
+  border: 7px double #e8d1c4;
+  text-align: left;
+  animation: fade .4s ease;
+}
+
+.paper h2 {
+  color: var(--red-dark);
+  font-size: 31px;
+  margin-bottom: 18px;
+}
+
+.paper p {
+  white-space: pre-line;
+  font-size: 14px;
+  line-height: 1.9;
+}
+
+.close-btn {
+  margin-top: 20px;
+  background: var(--blue-light);
+  color: #5c788c;
+  border-radius: 25px;
+  padding: 10px 20px;
+  font-weight: 800;
+}
+
+/* fortune cookie */
+
+#surprise {
+  background: linear-gradient(145deg, #f8e4e4, #e5edf5);
+}
+
+.surprise-card {
+  background: #fffaf0;
+  width: min(90vw, 450px);
+  padding: 30px 22px;
+  border: 1px solid #ecd7d1;
+  box-shadow: 0 10px 25px #9b6d7020;
+}
+
+.cookie {
+  font-size: 85px;
+  cursor: pointer;
+  margin: 20px;
+  display: inline-block;
+  transition: .3s;
+  animation: float 3s ease-in-out infinite;
+}
+
+.cookie:hover {
+  transform: rotate(12deg) scale(1.1);
+}
+
+@keyframes float {
+  0%,100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+.message {
+  display: none;
+  background: #f8e9e7;
+  padding: 18px;
+  margin: 15px 0;
+  line-height: 1.8;
+  font-size: 14px;
+}
+
+.message.show {
+  display: block;
+  animation: fade .4s ease;
+}
+
+/* halaman kue */
+
+#cake {
+  background: linear-gradient(145deg, #f8e5e5, #e4edf4);
+}
+
+.cake-art {
+  font-size: 110px;
+  margin: 20px;
+  cursor: pointer;
+  transition: .3s;
+}
+
+.cake-art:hover {
+  transform: scale(1.08);
+}
+
+#cakeMessage {
+  margin: 15px auto;
+  max-width: 360px;
+  line-height: 1.8;
+}
+
+/* halaman akhir */
+
+#final {
+  background: linear-gradient(140deg, #f8e3e5, #e4edf5);
+}
+
+.final-card {
+  background: #fffaf0;
+  width: min(90vw, 500px);
+  padding: 35px 25px;
+  border: 1px solid #ead5ce;
+  box-shadow: 0 10px 30px #9b6d7020;
+}
+
+.final-card h1 {
+  color: var(--red-dark);
+  font-size: 45px;
+  margin: 10px 0;
+}
+
+.final-card p {
+  font-size: 14px;
+  line-height: 1.9;
+  white-space: pre-line;
+}
+
+.heart {
+  font-size: 48px;
+  margin: 15px;
+  animation: beat 1.4s infinite;
+}
+
+@keyframes beat {
+  50% { transform: scale(1.18); }
+}
+
+/* responsif */
+
+@media(max-width: 420px) {
+  .envelope-scene {
+    height: 270px;
+  }
+
+  .letter {
+    height: 205px;
+  }
+
+  .flap {
+    height: 145px;
+  }
+
+  .seal {
+    width: 60px;
+    height: 60px;
+    top: 70px;
+  }
+
+  .spidey-character {
+    top: -55px;
+    right: -8px;
+  }
+
+  .spidey-character svg {
+    width: 100px;
+  }
+
+  .section-title {
+    font-size: 29px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<!-- HALAMAN 1: AMPLOP DIGITAL -->
+
+<section class="page active" id="home">
+
+  <div class="web-decoration web-left">🕸</div>
+  <div class="web-decoration web-right">🕸</div>
+
+  <div class="home-label">
+    a special delivery, just for you ♡
+  </div>
+
+  <div class="envelope-scene" id="envelope">
+
+    <!-- karakter superhero -->
+    <div class="spidey-character">
+      <svg viewBox="0 0 150 180" width="125"
+           xmlns="http://www.w3.org/2000/svg">
+
+        <!-- kaki -->
+        <path d="M48 112 L29 145 L43 153 L68 124Z"
+          fill="#a9c8df" stroke="#9c6470" stroke-width="3"/>
+
+        <path d="M91 112 L112 143 L99 154 L76 125Z"
+          fill="#a9c8df" stroke="#9c6470" stroke-width="3"/>
+
+        <!-- sepatu -->
+        <path d="M28 143 Q15 144 18 158 Q32 167 48 153Z"
+          fill="#c97983" stroke="#9c6470" stroke-width="3"/>
+
+        <path d="M98 153 Q115 165 127 154 Q127 140 111 141Z"
+          fill="#c97983" stroke="#9c6470" stroke-width="3"/>
+
+        <!-- badan -->
+        <path d="M43 68 Q75 52 106 70 L104 119
+          Q75 137 43 119Z"
+          fill="#cf7d88" stroke="#9c6470" stroke-width="3"/>
+
+        <!-- lambang laba-laba -->
+        <g stroke="#fff2e9" stroke-width="2" fill="none">
+          <path d="M75 84 L75 108 M65 89 L85 103
+            M85 89 L65 103 M67 96 L83 96"/>
+          <circle cx="75" cy="96" r="4" fill="#fff2e9"/>
+        </g>
+
+        <!-- lengan -->
+        <path d="M44 75 Q22 76 16 98 L25 105
+          Q43 96 55 91Z"
+          fill="#cf7d88" stroke="#9c6470" stroke-width="3"/>
+
+        <path d="M103 75 Q126 70 132 91 L122 100
+          Q109 91 96 91Z"
+          fill="#cf7d88" stroke="#9c6470" stroke-width="3"/>
+
+        <!-- kepala -->
+        <path d="M48 26 Q75 5 102 26
+          Q112 48 97 70 Q75 86 53 70
+          Q38 49 48 26Z"
+          fill="#c97983" stroke="#9c6470" stroke-width="3"/>
+
+        <!-- pola jaring -->
+        <g stroke="#f6d9d7" stroke-width="1.3" fill="none">
+          <path d="M75 14 L75 76 M48 30 L101 67
+            M101 30 L49 67 M54 19 L96 75
+            M96 19 L54 75"/>
+          <path d="M49 43 Q75 55 101 43
+            M52 56 Q75 68 98 56"/>
+        </g>
+
+        <!-- mata -->
+        <path d="M50 43 Q62 32 68 49
+          Q61 60 50 43Z"
+          fill="#fffaf0" stroke="#80545c" stroke-width="2"/>
+
+        <path d="M82 49 Q88 32 100 43
+          Q89 60 82 49Z"
+          fill="#fffaf0" stroke="#80545c" stroke-width="2"/>
+
+      </svg>
+    </div>
+
+    <!-- amplop -->
+    <div class="envelope">
+
+      <div class="letter">
+        <div style="font-size:24px">♡</div>
+        <h1>Happy</h1>
+        <div class="birthday-script">Birthday!</div>
+        <div class="tiny">A LITTLE LETTER MADE WITH LOVE</div>
+      </div>
+
+      <div class="envelope-side"></div>
+      <div class="envelope-front"></div>
+      <div class="flap"></div>
+
+      <!-- segel -->
+      <button class="seal" onclick="openEnvelope()"
+        aria-label="buka amplop">
+        <span>🕸</span>
+      </button>
+
+    </div>
+  </div>
+
+  <p class="home-instruction" id="instruction">
+    klik segel untuk membuka suratmu ♡
+  </p>
+
+  <button class="btn" id="homeNext"
+    onclick="goTo('birthday')">
+    Next →
+  </button>
+
+</section>
+
+<!-- HALAMAN 2: HAPPY BIRTHDAY -->
+
+<section class="page" id="birthday">
+
+  <div class="birthday-card">
+    <p class="subtitle">a day made just for you</p>
+
+    <div style="font-size:42px;margin:12px">🕷️ 🎀</div>
+
+    <h1>Happy Birthday</h1>
+
+    <p>
+selamat ulang tahun yaaa!
+
+hari ini adalah hari spesial kamu,
+jadi aku punya beberapa hal kecil
+yang pengen aku sampaikan.
+
+semoga kamu suka sama hadiah sederhana ini.
+jangan lupa nikmati hari kamu, okay? ♡
+    </p>
+
+    <div style="font-size:35px;margin:18px">🎂 ❤️</div>
+
+    <button class="btn" onclick="goTo('letters')">
+      Next →
+    </button>
+  </div>
+
+</section>
+
+<!-- HALAMAN 3: SURAT -->
+
+<section class="page" id="letters">
+
+  <div class="web-decoration web-left">🕸</div>
+
+  <p class="subtitle">open these little letters</p>
+
+  <h2 class="section-title">
+    for my favorite person
+  </h2>
+
+  <p class="section-desc">
+    aku punya empat surat kecil buat kamu.
+    dibaca satu-satu yaa ♡
+  </p>
+
+  <div class="letter-grid">
+
+    <button class="letter-card" onclick="openLetter(0)">
+      <div class="mini-envelope">💌</div>
+      <h3>thank you</h3>
+      <p>little things i appreciate</p>
+    </button>
+
+    <button class="letter-card" onclick="openLetter(1)">
+      <div class="mini-envelope">💌</div>
+      <h3>my wishes</h3>
+      <p>all the good things for you</p>
+    </button>
+
+    <button class="letter-card" onclick="openLetter(2)">
+      <div class="mini-envelope">💌</div>
+      <h3>things i admire</h3>
+      <p>what makes you special</p>
+    </button>
+
+    <button class="letter-card" onclick="openLetter(3)">
+      <div class="mini-envelope">💌</div>
+      <h3>open when sad</h3>
+      <p>a little comfort for you</p>
+    </button>
+
+  </div>
+
+  <button class="btn" style="margin-top:25px"
+    onclick="goTo('surprise')">
+    Next →
+  </button>
+
+</section>
+
+<!-- POP-UP SURAT -->
+
+<div class="modal" id="modal">
+  <div class="paper">
+
+    <div style="color:#c97983;font-size:22px">
+      ✿ ♡ ✿
+    </div>
+
+    <h2 id="letterTitle"></h2>
+
+    <p id="letterContent"></p>
+
+    <button class="close-btn" onclick="closeLetter()">
+      tutup surat
+    </button>
+
+  </div>
+</div>
+
+<!-- HALAMAN 4: FORTUNE COOKIE -->
+
+<section class="page" id="surprise">
+
+  <div class="web-decoration web-right">🕸</div>
+
+  <div class="surprise-card">
+
+    <p class="subtitle">one little surprise</p>
+
+    <h2 class="section-title">
+      a message for you
+    </h2>
+
+    <p class="section-desc">
+      coba buka keberuntungan kecil kamu.
+      klik fortune cookie-nya yaa!
+    </p>
+
+    <div class="cookie" onclick="getFortune()">
+      🥠
+    </div>
+
+    <div class="message" id="message"></div>
+
+    <button class="btn" onclick="getFortune()">
+      coba lagi
+    </button>
+
+    <br><br>
+
+    <button class="close-btn" onclick="goTo('cake')">
+      Next →
+    </button>
+
+  </div>
+
+</section>
+
+<!-- HALAMAN 5: KUE -->
+
+<section class="page" id="cake">
+
+  <div class="surprise-card">
+
+    <p class="subtitle">make a wish!</p>
+
+    <h2 class="section-title">
+      a cake for you
+    </h2>
+
+    <div class="cake-art" id="cakeArt"
+      onclick="blowCandle()">
+      🎂
+    </div>
+
+    <p id="cakeMessage">
+      jangan lupa buat satu permohonan kecil.
+      setelah itu klik kuenya untuk meniup lilin ♡
+    </p>
+
+    <button class="btn" onclick="goTo('final')">
+      Next →
+    </button>
+
+  </div>
+
+</section>
+
+<!-- HALAMAN 6: PENUTUP -->
+
+<section class="page" id="final">
+
+  <div class="web-decoration web-left">🕸</div>
+
+  <div class="final-card">
+
+    <div class="heart">❤️</div>
+
+    <p class="subtitle">one last letter</p>
+
+    <h1>Happy Birthday</h1>
+
+    <p>
+semoga di usia yang baru ini,
+kamu selalu dikelilingi hal-hal baik.
+
+semoga semua impian kamu bisa tercapai,
+semoga langkah kamu selalu dimudahkan,
+dan semoga kamu punya banyak alasan
+untuk tersenyum setiap harinya.
+
+terima kasih sudah menjadi diri kamu sendiri.
+jangan lupa jaga kesehatan dan bahagia terus yaa.
+
+once again, happy birthday!
+    </p>
+
+    <p class="script"
+      style="font-size:31px;color:#b66b76;margin-top:20px">
+      with love, always ♡
+    </p>
+
+    <button class="btn" onclick="goTo('home')">
+      mulai dari awal
+    </button>
+
+  </div>
+
+</section>
+
+<script>
+
+/* navigasi halaman */
+
+function goTo(id) {
+  document.querySelectorAll('.page').forEach(page => {
+    page.classList.remove('active');
+  });
+
+  document.getElementById(id).classList.add('active');
+
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth'
+  });
+}
+
+/* animasi amplop */
+
+let envelopeOpened = false;
+
+function openEnvelope() {
+  if (envelopeOpened) return;
+
+  envelopeOpened = true;
+
+  document.getElementById('envelope')
+    .classList.add('opened');
+
+  document.getElementById('instruction')
+    .textContent = 'surat kecil ini khusus buat kamu ♡';
+
+  setTimeout(() => {
+    document.getElementById('homeNext')
+      .classList.add('visible');
+  }, 1100);
+}
+
+/* isi surat */
+
+const letters = [
+  {
+    title: "thank you ♡",
+    content: `haii kamu!
+
+aku mau bilang terima kasih karena sudah hadir di hidup aku.
+
+terima kasih untuk semua cerita, tawa, perhatian, dan hal-hal kecil yang mungkin terlihat sederhana, tapi berarti buat aku.
+
+aku senang bisa mengenal kamu dan punya banyak cerita bareng kamu.
+
+semoga kamu tahu kalau keberadaan kamu itu berharga.
+
+thank you for being you. ♡`
+  },
+
+  {
+    title: "my wishes ✿",
+    content: `buat kamu yang lagi ulang tahun,
+
+aku berharap semoga kamu selalu sehat, bahagia, dan dikelilingi orang-orang yang tulus.
+
+semoga semua hal yang sedang kamu usahakan bisa berjalan dengan lancar.
+
+kalau ada sesuatu yang belum berhasil, nggak apa-apa. pelan-pelan aja, kamu nggak perlu buru-buru.
+
+semoga banyak hal baik datang ke hidup kamu tahun ini.
+
+you deserve all the good things. ♡`
+  },
+
+  {
+    title: "things i admire about you ♡",
+    content: `ada banyak hal dari kamu yang aku suka.
+
+aku suka cara kamu menjadi diri sendiri, cara kamu bercerita, dan hal-hal kecil yang mungkin nggak kamu sadari.
+
+aku suka saat kamu berusaha dan tetap mencoba meskipun keadaan nggak selalu mudah.
+
+kamu punya banyak hal baik dalam diri kamu.
+
+jadi jangan terlalu sering meragukan diri sendiri yaa.
+
+you are special in your own way. ♡`
+  },
+
+  {
+    title: "open when you're sad 🌷",
+    content: `haii, kalau kamu lagi baca surat ini, mungkin hari kamu sedang nggak begitu baik.
+
+nggak apa-apa kalau hari ini terasa berat. kamu nggak harus selalu terlihat baik-baik aja.
+
+kalau capek, istirahat dulu. jangan terlalu keras sama diri sendiri.
+
+ingat kalau kamu sudah melewati banyak hal sampai sejauh ini.
+
+semoga besok ada hal kecil yang bisa bikin kamu tersenyum lagi.
+
+take your time. everything will be okay, one step at a time. ♡`
+  }
+];
+
+/* buka surat */
+
+function openLetter(index) {
+  document.getElementById('letterTitle').textContent =
+    letters[index].title;
+
+  document.getElementById('letterContent').textContent =
+    letters[index].content;
+
+  document.getElementById('modal').classList.add('show');
+}
+
+/* tutup surat */
+
+function closeLetter() {
+  document.getElementById('modal').classList.remove('show');
+}
+
+document.getElementById('modal')
+  .addEventListener('click', function(e) {
+    if (e.target === this) {
+      closeLetter();
+    }
+  });
+
+/* fortune cookie */
+
+const fortunes = [
+  "semoga hal-hal baik selalu menemukan jalan menuju kamu. ♡",
+  "kamu pantas mendapatkan banyak kebahagiaan.",
+  "jangan lupa kalau kamu sudah berusaha sejauh ini. proud of you!",
+  "semoga tahun ini dipenuhi cerita yang menyenangkan.",
+  "semoga semua harapan kecil kamu satu per satu terwujud.",
+  "jangan lupa istirahat dan sayang sama diri sendiri yaa.",
+  "semoga kamu selalu punya alasan untuk tersenyum."
+];
+
+function getFortune() {
+  const random = Math.floor(Math.random() * fortunes.length);
+
+  const message = document.getElementById('message');
+
+  message.textContent = fortunes[random];
+  message.classList.add('show');
+}
+
+/* kue ulang tahun */
+
+let candleBlown = false;
+
+function blowCandle() {
+  if (candleBlown) return;
+
+  candleBlown = true;
+
+  document.getElementById('cakeArt').textContent = '🍰';
+
+  document.getElementById('cakeMessage').textContent =
+    'yeayyy! semoga semua harapan baik kamu terwujud yaa. ♡';
+}
+
+</script>
+
+</body>
+</html>
